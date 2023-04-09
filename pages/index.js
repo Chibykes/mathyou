@@ -53,7 +53,7 @@ export default function Home({ topics }) {
               hover:bg-amber-600
               duration-200
             ' href="/topics">
-              <BiMath className='text-2xl text-white font-bold' />
+              <BiMath className='text-xl text-white font-bold' />
               Start Learning
             </Link>
           </div>
