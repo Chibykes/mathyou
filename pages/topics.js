@@ -47,7 +47,8 @@ export default function Topics({ topics }) {
 
 export async function getServerSideProps(context){
 
-  const res = await fetch("http://localhost:3000/api/topics");
+  const baseURL = process.env.BASE_URL;
+  const res = await fetch(baseURL+"/api/topics");
   const data = await res.json();
   
   return {

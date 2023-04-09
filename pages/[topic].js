@@ -367,8 +367,8 @@ export default function Class({ topic }) {
 
 export async function getServerSideProps(context){
 
-
-  const res = await fetch("http://localhost:3000/api/topics?id="+context.query.topic);
+  const baseURL = process.env.BASE_URL;
+  const res = await fetch(baseURL+"/api/topics?id="+context.query.topic);
   const data = await res.json();
   
   return {

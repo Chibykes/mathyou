@@ -21,7 +21,7 @@ export default function Topics({ topics }) {
         <div className='px-8 py-5 lg:px-20 lg:py-12 space-y-5'>
           <p className='text-2xl font-bold text-center'>Unfinished Topics</p>
 
-          <div className='grid-cols-1 lg:grid-cols-4 gap-8'>
+          <div className='grid grid-cols-1 lg:grid-cols-4 gap-8'>
             {topics.map(topic => (
               <Card
                 key={topic.id}
@@ -44,8 +44,9 @@ export default function Topics({ topics }) {
 
 
 export async function getServerSideProps(context){
-
-  const res = await fetch("http://localhost:3000/api/topics");
+  
+  const baseURL = process.env.BASE_URL;
+  const res = await fetch(baseURL+"/api/topics");
   const data = await res.json();
   
   return {

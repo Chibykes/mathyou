@@ -36,10 +36,10 @@ export default function Topics({  }) {
 
         <Navbar logo="blue" />
 
-        <div className='px-20 py-12 space-y-5'>
+        <div className='px-8 py-5 lg:px-20 lg:py-12 space-y-5'>
           <p className='text-2xl font-bold'>Performance</p>
 
-          <div className='grid grid-cols-3 gap-5'>
+          <div className='grid grid-cols-1 lg:grid-cols-3 gap-5'>
 
             {performance_data.map(({ value, details, icon }, index) => (
               <div key={index} className='divide-y min-h-[140px] p-3 bg-white hover:bg-gradient-to-t from-sky-500 to-sky-400 hover:text-white border rounded-md'>
