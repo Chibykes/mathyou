@@ -65,7 +65,7 @@ export default function Navbar ({ logo, absolute }) {
                 </div>
                 <Tooltip id="my-tooltip" style={{fontSize: "12px"}} />
 
-                <div className="group-hover:opacity-100 opacity-0 duration-200 absolute top-full right-0 w-full z-10 pt-2">
+                <div className="group-hover:opacity-100 group-hover:top-full opacity-0 duration-200 absolute top-0 right-0 w-full z-10 pt-2">
                   <div className="bg-white shadow-2xl p-2 w-full rounded-md divide-y">
                     <Link className="flex items-center gap-2 text-neutral-600 hover:text-sky-600 text-xs p-2" href="/unfinished-topics">
                       <AiFillBook className="text-base" />
