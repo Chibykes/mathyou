@@ -8,7 +8,7 @@ import { Tooltip } from 'react-tooltip'
 import 'react-tooltip/dist/react-tooltip.css';
 
 import { AiFillBook } from 'react-icons/ai'
-import { MdAnalytics } from 'react-icons/md'
+import { MdAnalytics, MdNoteAdd } from 'react-icons/md'
 import { IoIosExit } from 'react-icons/io'
 import { toast } from "react-hot-toast";
 
@@ -35,7 +35,7 @@ export default function Navbar ({ logo, absolute }) {
                 bg-white px-4 py-3 rounded-lg
                 text-black text-xs font-bold
                 hover:bg-black hover:text-white
-                duration-200 border border-black
+                duration-200 border
               '
               onClick={signIn}
               >
@@ -45,7 +45,7 @@ export default function Navbar ({ logo, absolute }) {
               :
               <div className="group flex relative">
                 <div 
-                  className="flex items-center gap-3 bg-white p-2 px-3 rounded-md shadow-lg"
+                  className="flex items-center gap-3 bg-white p-2 px-3 rounded-md border"
                   data-tooltip-id="my-tooltip" 
                   data-tooltip-content="Account" 
                   data-tooltip-place="right"
@@ -74,6 +74,10 @@ export default function Navbar ({ logo, absolute }) {
                     <Link className="flex items-center gap-2 text-neutral-600 hover:text-sky-600 text-xs p-2" href="/performance">
                       <MdAnalytics className="text-base" />
                       Performance
+                    </Link>
+                    <Link className="flex items-center gap-2 text-neutral-600 hover:text-sky-600 text-xs p-2" href="/add-topic">
+                      <MdNoteAdd className="text-base" />
+                      Add New Topic
                     </Link>
                     <div className="flex items-center gap-2 text-neutral-600 hover:text-sky-600 text-xs p-2" 
                       onClick={signOut}

@@ -7,13 +7,9 @@ import Card from '../components/Card'
 import Navbar from '../components/Navbar'
 import { MdVideoLibrary } from 'react-icons/md'
 import { useEffect } from 'react'
+import { read_database } from '../hooks/firebase'
 
 export default function Home({ topics }) {
-
-  useEffect(() => {
-    
-    return;
-  }, []);
 
   return (
     <>
@@ -22,43 +18,53 @@ export default function Home({ topics }) {
       </Head>
 
       <main className='
-        h-screen
+        h-screen divide-y
       '>
 
-      <Navbar logo="blue" />
+        <Navbar logo="blue" />
 
         <div className='
-          flex flex-col justify-center items-start gap-12 w-full h-3/4 overflow-hidden 
-          bg-[url(/bg.svg)] bg-contain bg-no-repeat bg-right from-sky-600 to-sky-600
-          px-20
+          lg:grid grid-cols-12 items-center gap-12 w-full overflow-hidden 
+           from-sky-600 to-sky-600
+          lg:px-20 px-10 py-12
         '>
 
+          <div className='col-span-5 space-y-8'>
+            <p className='lg:text-left text-center text-5xl font-extrabold text-black'>
+              Learning math doesnt have to be&nbsp;
+              <span className="
+                relative
+                after:absolute after:-bottom-1 after:left-0 after:w-full after:h-1 after:bg-sky-600
+              ">
+                difficult
+              </span>
+            </p>
 
-          <p className='lg:w-1/3 text-4xl font-bold text-black'>
-            Learning math doesnt have to be&nbsp;
-            <span className="
-              relative
-              after:absolute after:-bottom-1 after:left-0 after:w-full after:h-1 after:bg-sky-600
-            ">
-              difficult
-            </span>
-          </p>
-
-          <div className=''>
-            <Link className='
-              flex justify-center items-center gap-3
-              bg-black px-8 py-4 rounded-md
-              ring-2 ring-transparent ring-offset-1
-              text-white text-lg font-bold uppercase
-              hover:bg-amber-600
-              duration-200
-            ' href="/topics">
-              <BiMath className='text-xl text-white font-bold' />
-              Start Learning
-            </Link>
+            <div className='lg:block flex justify-center'>
+              <Link className='
+                inline-flex justify-center items-center gap-3
+                bg-black px-8 py-4 rounded-md
+                ring-2 ring-transparent ring-offset-1
+                text-white lg:text-lg text-sm font-bold uppercase
+                hover:bg-amber-600
+                duration-200
+              ' href="/topics">
+                <BiMath className='text-xl text-white font-bold' />
+                Start Learning
+              </Link>
+            </div>
           </div>
-        </div>
 
+          <div className='col-span-7 relative w-full h-96'>
+            <Image 
+              className='object-contain'
+              src="/bg.svg"
+              alt=""
+              fill
+            />
+          </div>
+
+        </div>
 
         <div className='px-8 py-5 lg:px-20 lg:py-12 space-y-5'>
           <p className='text-2xl font-bold text-center'>Recent Topics</p>
@@ -114,14 +120,9 @@ export default function Home({ topics }) {
 
 
 export async function getServerSideProps(context){
-
-  const baseURL = process.env.BASE_URL;
-  const res = await fetch(baseURL+"/api/topics");
-  const data = await res.json();
-  
   return {
     props: {
-      topics: data
+      topics: await read_database("topics")
     }
   }
 }

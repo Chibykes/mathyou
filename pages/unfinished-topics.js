@@ -6,6 +6,7 @@ import { GiUpgrade } from 'react-icons/gi'
 import Card from '../components/Card'
 import Navbar from '../components/Navbar'
 import { MdVideoLibrary } from 'react-icons/md'
+import { read_database } from '../hooks/firebase'
 
 export default function Topics({ topics }) {
   return (
@@ -44,14 +45,9 @@ export default function Topics({ topics }) {
 
 
 export async function getServerSideProps(context){
-  
-  const baseURL = process.env.BASE_URL;
-  const res = await fetch(baseURL+"/api/topics");
-  const data = await res.json();
-  
   return {
     props: {
-      topics: data
+      topics: await read_database("topics")
     }
   }
 }
