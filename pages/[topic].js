@@ -93,13 +93,13 @@ export default function Class({ topic }) {
             <>
               <p className='text-2xl font-bold'>{topic.heading}</p>
 
-              <div className="group relative w-full h-96 inset-0 overflow-hidden rounded-md">
-                  <Image 
+              <div className="group relative w-full h-auto inset-0 overflow-hidden rounded-md">
+                  {/* <Image 
                       className="object-cover"
                       src={topic.image}
                       alt=""
                       fill
-                  />
+                  /> */}
 
                   <Player
                     ref={(player) => { playerRef.current = player }}
