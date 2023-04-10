@@ -80,8 +80,8 @@ export default function Home({  }) {
 
   useEffect(() => {
     const { Jodit } = require('jodit');
-    setDetails(Jodit.make('#details'));
-    setPractice(Jodit.make('#practice'));
+    setDetails(Jodit.make('#details', { height: 400 }));
+    setPractice(Jodit.make('#practice', { height: 400 }));
   }, [])
 
 
@@ -98,9 +98,9 @@ export default function Home({  }) {
         <Navbar logo="blue" />
 
         <div className='py-12 px-5'>
-          <div className='grid grid-cols-3 gap-8 max-w-6xl mx-auto py-12 px-5'>
+          <div className='grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto'>
 
-            <div className='col-span-2 space-y-8'>
+            <div className='lg:col-span-2 space-y-8'>
               <input 
                 className='block w-full p-3 text-2xl font-bold border'
                 placeholder='Topic Title'
@@ -127,7 +127,7 @@ export default function Home({  }) {
               />
             </div>
 
-            <div className='col-span-1 space-y-8'>
+            <div className='lg:col-span-1 space-y-8'>
               <div className="space-y-2">
                 <p className='font-bold text-xs'> Upload Images </p>
                 <FilePond
